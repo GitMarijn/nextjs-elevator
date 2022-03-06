@@ -2,7 +2,7 @@ import styled, { DefaultTheme } from "styled-components";
 
 interface IStyledElevatorProps {
   theme: DefaultTheme;
-  currentFloor: boolean;
+  currentFloor?: boolean;
 }
 
 export const FloorElement = styled.div`
@@ -26,4 +26,8 @@ export const FloorWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
+`;
+
+export const MovingMessage = styled.h3`
+  color: ${({ theme }: IStyledElevatorProps) => theme.colors.tertiary};
 `;

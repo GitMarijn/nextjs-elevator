@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonDown, ButtonUp } from "../../common/Buttons/Buttons";
 import { FLOORS } from "../../../../constants/floors.constants";
-import { FloorElement, FloorWrapper } from "./Elevator.styled";
+import { FloorElement, FloorWrapper, MovingMessage } from "./Elevator.styled";
 
 type ElevatorProps = {
   currentFloor: number;
@@ -18,8 +18,8 @@ const Elevator = ({
 }: ElevatorProps) => {
   return (
     <FloorWrapper>
-      <h2>Floors</h2>
-      {moving && <p>ELEVATOR IS MOVING</p>}
+      <h1>Floors</h1>
+      {moving && <MovingMessage>ELEVATOR IS MOVING...</MovingMessage>}
       {direction ? (
         <p>{`Going ${direction}`}</p>
       ) : (

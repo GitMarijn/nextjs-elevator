@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
-import { GenericPageWrapper } from "../src/components/common/layout/layout.styled";
+import { useEffect, useState } from "react";
+import { GenericPageWrapper } from "../src/components/common/Layout/layout.styled";
 import ControlPanel from "../src/components/dedicated/ControlPanel/ControlPanel";
 import Elevator from "../src/components/dedicated/Elevator/Elevator";
 
@@ -11,6 +11,11 @@ const Home: NextPage = () => {
   const [moving, setMoving] = useState<boolean>(false);
 
   let floorQueue: Array<number> = [];
+
+  useEffect(() => {
+    currentFloor === 5 && setDirection("down");
+    currentFloor === 0 && setDirection("up");
+  }, [currentFloor]);
 
   const moveElevator = (floor: number, delay: number) => {
     setMoving(true);
@@ -41,7 +46,7 @@ const Home: NextPage = () => {
         // Sort floors from low to high when going up
         floorQueue = [...floorQueue, floor].sort((a, b) => a - b);
         floorQueue.forEach((item) =>
-          moveElevator(item, (floor - currentFloor) * 500 + 1000)
+          moveElevator(item, (floor - currentFloor) * 1000 + 1000)
         );
       }
     }
@@ -55,7 +60,7 @@ const Home: NextPage = () => {
         // Sort floors from high to low when going down
         floorQueue = [...floorQueue, floor].sort((a, b) => b - a);
         floorQueue.forEach((item) =>
-          moveElevator(item, (currentFloor - floor) * 500 + 1000)
+          moveElevator(item, (currentFloor - floor) * 1000 + 1000)
         );
       }
     }
@@ -65,10 +70,6 @@ const Home: NextPage = () => {
     if (direction === "up") return currentFloor > floor;
     if (direction === "down") return currentFloor < floor;
   };
-
-  console.log("CurrentFloor:", currentFloor);
-  console.log("direction:", direction);
-  console.log("moving:", moving);
 
   return (
     <>
