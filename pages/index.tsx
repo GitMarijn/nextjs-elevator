@@ -67,8 +67,8 @@ const Home: NextPage = () => {
   };
 
   const calculateDisabledButton = (floor: number) => {
-    if (direction === "up") return currentFloor > floor;
-    if (direction === "down") return currentFloor < floor;
+    if (direction === "up") return currentFloor >= floor;
+    if (direction === "down") return currentFloor <= floor;
   };
 
   return (
