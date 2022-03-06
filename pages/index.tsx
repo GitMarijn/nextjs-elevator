@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { GenericPageWrapper } from "../src/components/common/Layout/layout.styled";
+import { GenericPageWrapper } from "../src/components/common/layout/layout.styled";
 import ControlPanel from "../src/components/dedicated/ControlPanel/ControlPanel";
 import Elevator from "../src/components/dedicated/Elevator/Elevator";
 
