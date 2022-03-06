@@ -19,9 +19,9 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledButtonUp = styled(BaseSummonButton)`
-  border-bottom: 10px solid black;
+  border-bottom: 15px solid black;
 `;
 
 export const StyledButtonDown = styled(BaseSummonButton)`
-  border-top: 10px solid black;
+  border-top: 15px solid black;
 `;
