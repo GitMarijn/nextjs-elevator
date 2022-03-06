@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
 
 interface IStyledElevatorProps {
   theme: DefaultTheme;
@@ -18,6 +18,7 @@ export const FloorElement = styled.div`
   font-weight: bold;
   border: 2px solid
     ${({ theme }: IStyledElevatorProps) => theme.colors.secondary};
+  transition: 2s;
 `;
 
 export const FloorWrapper = styled.div`

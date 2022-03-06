@@ -4,13 +4,15 @@ import { ButtonContainer } from "./ControlPanel.styled";
 import { FLOORS } from "../../../../constants/floors.constants";
 
 type ControlPanelProps = {
-  handleFloorSelection: (type: number) => void;
+  handleFloorSelection: (floor: number) => void;
+  calculateDisabledButton: (floor: number) => boolean | undefined;
   direction: string | null;
 };
 
 const ControlPanel = ({
   handleFloorSelection,
   direction,
+  calculateDisabledButton,
 }: ControlPanelProps) => {
   return (
     <ButtonContainer>
@@ -20,6 +22,7 @@ const ControlPanel = ({
         <Button
           key={floor}
           handleFloorSelection={() => handleFloorSelection(floor)}
+          disabled={calculateDisabledButton(floor)}
         >
           {floor}
         </Button>

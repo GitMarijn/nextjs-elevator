@@ -9,10 +9,19 @@ type ButtonProps = {
   children?: number;
   summonElevator?: () => void;
   handleFloorSelection?: () => void;
+  disabled?: boolean;
 };
 
-export const Button = ({ children, handleFloorSelection }: ButtonProps) => {
-  return <StyledButton onClick={handleFloorSelection}>{children}</StyledButton>;
+export const Button = ({
+  children,
+  handleFloorSelection,
+  disabled,
+}: ButtonProps) => {
+  return (
+    <StyledButton onClick={handleFloorSelection} disabled={disabled}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export const ButtonUp = ({ summonElevator }: ButtonProps) => (
